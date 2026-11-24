@@ -973,7 +973,7 @@ function applyLang(){
  document.querySelectorAll("[data-i]").forEach(e=>{const v=T[lang][e.dataset.i];if(v!=null)e.textContent=v;});
  document.querySelectorAll("[data-ph]").forEach(e=>{const v=T[lang][e.dataset.ph];if(v!=null)e.placeholder=v;});
  $("#lang").textContent=lang==="ar"?"EN":"ع";
- document.title=lang==="ar"?"Hady Graphics | هادي ماهر":"Hady Graphics | Hady Maher";
+ document.title=lang==="ar"?"هادي ماهر | Hady Maher — مصمم أغلفة ومذكرات للمدرسين":"Hady Maher | Hady Graphics — Education Designer";
  renderBooks();renderVids();renderGalleries();renderSvc();renderContacts();renderTabs();renderFlows();renderIds();renderWall();buildMsg();nbFlip.show();fb2.show();fb3.show();renderExam();splitHeads();bindTilt();observe();
 }
 $("#lang").addEventListener("click",()=>{lang=lang==="ar"?"en":"ar";try{localStorage.setItem("hg-lang",lang)}catch(e){};applyLang();});
