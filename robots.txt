@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hadymaher580.github.io/sitemap.xml
