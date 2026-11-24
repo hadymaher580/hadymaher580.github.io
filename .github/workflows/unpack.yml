@@ -1,0 +1,28 @@
+{
+ "name": "Unpack site",
+ "on": {
+  "push": {
+   "paths": [
+    "**.zip"
+   ]
+  },
+  "workflow_dispatch": null
+ },
+ "permissions": {
+  "contents": "write"
+ },
+ "jobs": {
+  "unpack": {
+   "runs-on": "ubuntu-latest",
+   "steps": [
+    {
+     "uses": "actions/checkout@v4"
+    },
+    {
+     "name": "Unzip and commit",
+     "run": "shopt -s nullglob\nzips=(*.zip)\nif [ ${#zips[@]} -eq 0 ]; then echo no zips; exit 0; fi\nfor z in \"${zips[@]}\"; do unzip -o -q \"$z\"; rm -f \"$z\"; done\ngit config user.name \"Hady Maher\"\ngit config user.email \"hadymaher580@users.noreply.github.com\"\ngit add -A\ngit commit -m \"Unpack site files\" || echo nothing\ngit push\n"
+    }
+   ]
+  }
+ }
+}
